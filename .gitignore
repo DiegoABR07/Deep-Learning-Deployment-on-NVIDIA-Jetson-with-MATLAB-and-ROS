@@ -1,0 +1,46 @@
+# ==========================
+# Archivos de sistema
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# Archivos de MATLAB
+# ==========================
+# Archivos temporales y autosave
+*.asv
+*.autosave
+*.mex*
+*.mexa64
+*.mexw64
+*.mexmaci64
+
+# Archivos de cache y perfiles
+*.slxc
+*.slprj/
+*.mdl.autosave
+*.slxc.autosave
+*.mex*
+
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+
+# ==========================
+# Archivos de entorno / IDE
+# ==========================
+.vscode/
+.idea/
+*.code-workspace
+
+# ==========================
+# Archivos Git
+# ==========================
+.gitattributes
