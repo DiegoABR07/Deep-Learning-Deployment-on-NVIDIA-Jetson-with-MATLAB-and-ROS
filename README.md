@@ -26,7 +26,7 @@ Classification/
 ├── JetsonCode/            # Código C++ del nodo ROS (clasificación)
 │   ├── classifier.cpp
 │   ├── classifier.hpp
-│   ├── classifier\_usb.launch
+│   ├── classifier_usb.launch
 │   ├── CMakeLists.txt
 │   └── package.xml
 ├── Models/                # Redes preentrenadas en formato MAT
@@ -37,13 +37,13 @@ Classification/
 │   └── vgg16.mat
 ├── myClassifier.m         # Función de inferencia en MATLAB
 ├── myClassifierGPU.m      # Implementación preparada para GPU Coder
-├── myClassifierGPU\_generation\_script.m  # Script para generar la .so
+├── myClassifierGPU_generation_script.m  # Script para generar la .so
 ├── Samples/               # Imágenes de prueba
 │   ├── car.jpg
-│   ├── number\_0.jpg
-│   ├── number\_2.jpg
-│   ├── number\_3.jpg
-│   ├── number\_7.jpg
+│   ├── number_0.jpg
+│   ├── number_2.jpg
+│   ├── number_3.jpg
+│   ├── number_7.jpg
 │   ├── peppers.jpg
 │   └── Person.jpg
 ├── saveNetworkToFile.m
@@ -62,14 +62,14 @@ ObjectDetection/
 ├── JetsonCode/
 │   ├── detector.cpp
 │   ├── detector.hpp
-│   ├── detector\_usb.launch
+│   ├── detector_usb.launch
 │   ├── CMakeLists.txt
 │   └── package.xml
 ├── Models/
-│   └── yoloV4\_coco.mat       # Detector YOLOv4 preentrenado (COCO)
+│   └── yoloV4_coco.mat       # Detector YOLOv4 preentrenado (COCO)
 ├── myDetector.m
 ├── myDetectorGPU.m
-├── myDetectorGPU\_generation\_script.m
+├── myDetectorGPU_generation_script.m
 ├── Samples/
 │   ├── car.jpg
 │   └── Person.jpg
@@ -92,15 +92,15 @@ Original/
 │   ├── myAlexNet.m
 │   ├── myAlexNetGPU.m
 │   ├── myAlexNetGPU.prj
-│   ├── myAlexNetGPU\_generation\_script.m
+│   ├── myAlexNetGPU_generation_script.m
 │   ├── peppers.jpg
 │   ├── saveAlexNetToFile.m
 │   ├── testAlexNet.m
-│   └── visualizeROSData\_DEMO.m
+│   └── visualizeROSData_DEMO.m
 └── JetsonCodeOriginal/
 ├── alexnet.cpp
 ├── alexnet.hpp
-├── alexnet\_usb.launch
+├── alexnet_usb.launch
 ├── CMakeLists.txt
 └── package.xml
 
@@ -139,13 +139,13 @@ Para ejecutar los modelos en la Jetson como nodos ROS, se utiliza un *workspace*
 
 ```
 
-/home/ucspjason/catkin\_ws/
+/home/ucspjason/catkin_ws/
 └── src/
-└── msra\_deployed\_nn/
+└── msra_deployed_nn/
 ├── CMakeLists.txt      # Build system del paquete
 ├── package.xml         # Metadatos del paquete ROS
 ├── launch/
-│   └── alexnet\_usb.launch  # Launch file para lanzar el nodo con cámara USB
+│   └── alexnet_usb.launch  # Launch file para lanzar el nodo con cámara USB
 └── src/
 ├── alexnet.cpp      # Nodo C++ que invoca la biblioteca generada
 └── alexnet.hpp      # Interfaz de la clase que maneja la inferencia
