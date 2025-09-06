@@ -141,14 +141,14 @@ Para ejecutar los modelos en la Jetson como nodos ROS, se utiliza un *workspace*
 
 /home/ucspjason/catkin_ws/
 └── src/
-└── msra_deployed_nn/
-├── CMakeLists.txt      # Build system del paquete
-├── package.xml         # Metadatos del paquete ROS
-├── launch/
-│   └── alexnet_usb.launch  # Launch file para lanzar el nodo con cámara USB
-└── src/
-├── alexnet.cpp      # Nodo C++ que invoca la biblioteca generada
-└── alexnet.hpp      # Interfaz de la clase que maneja la inferencia
+│   └── msra_deployed_nn/
+│       ├── CMakeLists.txt      # Build system del paquete
+│       ├── package.xml         # Metadatos del paquete ROS
+│       ├── launch/
+│       │   └── alexnet_usb.launch  # Launch file para lanzar el nodo con cámara USB
+│       └── src/
+│           └── alexnet.cpp      # Nodo C++ que invoca la biblioteca generada
+│           └── alexnet.hpp      # Interfaz de la clase que maneja la inferencia
 
 ```
 

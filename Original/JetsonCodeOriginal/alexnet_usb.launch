@@ -1,0 +1,20 @@
+<launch>
+  <!-- AlexNet -->
+  <node pkg="msra_deployed_nn" type="alexnet" name="alexnet"
+        output="screen">
+    <!-- topic de entrada; no cambies código, solo este parámetro -->
+    <param name="input_topic" value="/usb_cam/image_raw"/>
+  </node>
+
+  <!-- YUYV 640×360 @30 FPS  (sin JPEG, cero decodificación) -->
+  <node pkg="usb_cam" type="usb_cam_node" name="usb_cam" output="screen">
+    <param name="video_device"  value="/dev/video0"/>
+    <param name="image_width"   value="640"/>
+    <param name="image_height"  value="360"/>
+    <param name="framerate"     value="30"/>
+    <param name="pixel_format"  value="yuyv"/>
+    <param name="auto_white_balance" value="false"/>
+    <param name="auto_focus"         value="false"/>
+  </node>
+
+</launch>

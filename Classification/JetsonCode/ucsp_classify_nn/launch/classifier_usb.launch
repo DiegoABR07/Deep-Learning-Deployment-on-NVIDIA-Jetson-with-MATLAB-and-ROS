@@ -1,0 +1,24 @@
+<launch>
+  <!-- Nodo genérico de clasificación en Jetson Nano -->
+  <node pkg="ucsp_classify_nn" type="classifier" name="classifier"
+        output="screen">
+    <!-- Parámetro de entrada: tópico de la cámara -->
+    <param name="input_topic" value="/usb_cam/image_raw"/>
+    <!-- Parámetros opcionales para el tamaño de recorte de la red -->
+    <!-- Si tu nuevo modelo requiere 224×224, pon esos valores aquí. -->
+    <param name="sub_h" value="227"/>   <!-- <<< Cambia a la altura que necesite tu red >>> -->
+    <param name="sub_w" value="227"/>   <!-- <<< Cambia a la anchura que necesite tu red >>> -->
+    <param name="channels" value="3"/>  <!-- Generalmente 3 para RGB -->
+  </node>
+
+  <!-- Nodo usb_cam para capturar directamente de /dev/video0 -->
+  <node pkg="usb_cam" type="usb_cam_node" name="usb_cam" output="screen">
+    <param name="video_device"  value="/dev/video0"/>
+    <param name="image_width"   value="640"/>
+    <param name="image_height"  value="360"/>
+    <param name="framerate"     value="30"/>
+    <param name="pixel_format"  value="yuyv"/>
+    <param name="auto_white_balance" value="false"/>
+    <param name="auto_focus"         value="false"/>
+  </node>
+</launch>

@@ -1,0 +1,32 @@
+<launch>
+  <!-- Nodo de detección de objetos en Jetson Nano -->
+  <node pkg="ucsp_detect_nn" type="detector_node" name="detector_node"
+        output="screen">
+    <!-- Tópico de entrada: cámara USB -->
+    <param name="input_topic" value="/usb_cam/image_raw"/>
+
+    <!-- Tamaño de la subimagen que pide el detector.
+         Ejemplos: 
+            – Para YOLOv4-csp-darknet53-coco: 416×416
+            – Para tiny-yolov4-coco: 320×320
+            – Para YOLOX-nano: 416×416 (u otro)
+         Ajusta estos valores según tu modelo. -->
+    <param name="sub_h" value="416"/>
+    <param name="sub_w" value="416"/>
+    <param name="channels" value="3"/>
+
+    <!-- Umbral mínimo para filtrar detecciones (entre 0 y 1) -->
+    <param name="threshold" value="0.7"/>
+  </node>
+
+  <!-- Nodo usb_cam para capturar YUYV 640×360 @30 FPS -->
+  <node pkg="usb_cam" type="usb_cam_node" name="usb_cam" output="screen">
+    <param name="video_device"  value="/dev/video0"/>
+    <param name="image_width"   value="640"/>
+    <param name="image_height"  value="360"/>
+    <param name="framerate"     value="30"/>
+    <param name="pixel_format"  value="yuyv"/>
+    <param name="auto_white_balance" value="false"/>
+    <param name="auto_focus"         value="false"/>
+  </node>
+</launch>
