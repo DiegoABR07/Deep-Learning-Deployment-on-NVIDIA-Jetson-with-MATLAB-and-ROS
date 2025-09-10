@@ -1,4 +1,4 @@
-function mnistLive(cameraName, resolution) %#codegen
+function mnistDetection(cameraName, resolution) %#codegen
 % Clasificación MNIST en vivo en Jetson con overlay del dígito
 % Requiere: Deep Learning Toolbox + GPU Coder + Support Pkg Jetson
 
@@ -7,7 +7,7 @@ persistent net;
 if isempty(net)
     % El string debe ser constante en compilación
     % net = coder.loadDeepLearningNetwork('Models/mnistNet.mat');
-    net = coder.loadDeepLearningNetwork('Models/mnistMLP.mat');  % <- nuevo archivo
+    net = coder.loadDeepLearningNetwork('Models/mnistMLP.mat');
 end
 
 % 2) I/O de la Jetson para código generado

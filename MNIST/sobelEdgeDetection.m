@@ -4,8 +4,6 @@ function sobelEdgeDetection(cameraName,resolution) %#codegen
 %   MATLAB Coder Support Package for NVIDIA Jetson and NVIDIA DRIVE 
 %   Platforms that use Sobel algorithms for edge detection.
 
-%   Copyright 2020-2023 The MathWorks, Inc.
-
 hwobj = jetson;
 camObj = camera(hwobj,cameraName,resolution);
 dispObj = imageDisplay(hwobj);

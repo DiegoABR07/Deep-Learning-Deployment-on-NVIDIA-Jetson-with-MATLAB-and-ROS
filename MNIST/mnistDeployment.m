@@ -17,7 +17,7 @@ disp(hwobj);
 %% Cámara (usa resoluciones soportadas por tu /dev/video0)
 camlist = getCameraList(hwobj);
 camName = char(camlist{1,"Camera Name"});
-camResolution = [640 360];  % estable en tu cámara YUYV/MJPG
+camResolution = [640 360];
 
 %% Config de código (EXE para Jetson)
 cfg = coder.gpuConfig('exe');
@@ -28,18 +28,20 @@ cfg.GenerateExampleMain = 'GenerateCodeAndCompile';
 
 % Acelera inferencia con TensorRT (o cuDNN):
 cfg.DeepLearningConfig = coder.DeepLearningConfig('cudnn');  % Jetson
-% alternativa: cfg.DeepLearningConfig = coder.DeepLearningConfig('cudnn');
+% alternativa: cfg.DeepLearningConfig = coder.DeepLearningConfig('tensorrt');
 
 % Entradas constantes del entry-point
 inputArgs = {coder.Constant(camName), coder.Constant(camResolution)};
 
 % Asegúrate de que 'mnistNet.mat' esté en el path actual (se usa en codegen)
-codegen('-config', cfg, 'mnistLive', '-args', inputArgs, '-report');
+codegen('-config', cfg, 'mnistDetection', '-args', inputArgs, '-report');
 
 %% Autorizar X11 y lanzar!!!
 % Prueba ambos displays y da permiso al usuario ante el servidor X.
 for dispVal = ["0.0","1.0"]
-    try setDisplayEnvironment(hwobj, char(dispVal)); end
+    try 
+        setDisplayEnvironment(hwobj, char(dispVal)); 
+    end
     try
         dshort = extractBefore(dispVal,'.');
         system(hwobj, sprintf('bash -lc "DISPLAY=:%s xhost +SI:localuser:%s"', dshort, username));

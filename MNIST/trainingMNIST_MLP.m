@@ -1,6 +1,6 @@
 function trainingMNIST_MLP(outputMat)
 % Entrena un MLP sencillo para MNIST (sin escalar a [0,1]) y guarda .mat.
-% Además, muestra la curva de entrenamiento y una matriz de confusión
+% Muestra la curva de entrenamiento y una matriz de confusión
 % (sobre el conjunto de validación) al finalizar.
 %
 % Guarda: net, inputSize, classNames
@@ -66,7 +66,7 @@ fprintf('Saved %s\n', outputMat);
 % Evaluación: matriz de confusión (validación)
 % ------------------------------------------------------------
 % Predicción por lotes en validación
-[predVal, scoresVal] = classify(net, imdsVal, 'MiniBatchSize', mb); %#ok<ASGLU>
+[predVal, ~] = classify(net, imdsVal, 'MiniBatchSize', mb);
 trueVal = imdsVal.Labels;
 
 % Accuracy simple
