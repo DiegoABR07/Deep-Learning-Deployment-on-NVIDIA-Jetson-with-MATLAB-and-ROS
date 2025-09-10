@@ -14,6 +14,7 @@ Thumbs.db
 *.mexa64
 *.mexw64
 *.mexmaci64
+*.elf
 
 # Archivos de cache y perfiles
 *.slxc

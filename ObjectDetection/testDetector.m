@@ -19,7 +19,7 @@ clear myDetectorGPU
 % 2) Parámetros de prueba
 runMode      = "GPU";  % "CPU" o "GPU"
 detectorFile = "Models/yoloV4_coco.mat";  % Usa slash para portabilidad
-imgPath      = "Samples/car.jpg";
+imgPath      = "Samples/imtest11.png";
 umbral       = 0.75;
 
 % 3) Cargar imagen
