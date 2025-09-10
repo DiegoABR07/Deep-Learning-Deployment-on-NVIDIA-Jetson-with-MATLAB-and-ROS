@@ -27,18 +27,9 @@ classNames = categories(imdsTrain.Labels);
 % MLP puro: (FC-ReLU) x 2 -> FC -> softmax
 % ¡OJO! Sin normalización: 'Normalization','none'
 % ------------------------------------------------------------
+% SIN escala a [0,1] (rescale-zero-one)
 layers = [
-    imageInputLayer(inputSize,'Normalization','none')   % ← SIN escala a [0,1] (rescale-zero-one)
-    fullyConnectedLayer(1024)
-    reluLayer
-    fullyConnectedLayer(512)
-    reluLayer
-    fullyConnectedLayer(256)
-    reluLayer
-    fullyConnectedLayer(128)
-    reluLayer
-    fullyConnectedLayer(64)
-    reluLayer
+    imageInputLayer(inputSize,'Normalization','none')
     fullyConnectedLayer(numel(classNames))
     softmaxLayer
     classificationLayer];
